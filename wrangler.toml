@@ -7,6 +7,15 @@ workers_dev = false
 directory = "./dist"
 binding = "ASSETS"
 not_found_handling = "404-page"
+run_worker_first = true
+
+[[routes]]
+pattern = "icra.engineer"
+custom_domain = true
+
+[[routes]]
+pattern = "www.icra.engineer"
+custom_domain = true
 
 [vars]
 SITE_URL = "https://icra.engineer"
