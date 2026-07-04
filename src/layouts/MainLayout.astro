@@ -6,6 +6,7 @@ export interface Props {
   description?: string;
   image?: string;
   noindex?: boolean;
+  canonicalPath?: string;
 }
 
 const {
@@ -13,10 +14,12 @@ const {
   description = "Acquire icra.engineer — the professional .engineer domain for specialized ICRA engineering services. The perfect brand for technical expertise in infection control, containment design, airflow engineering, and healthcare facility compliance.",
   image = "https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/ccb64e0e-1b98-4243-8d2d-d111a277bb00/public",
   noindex = false,
+  canonicalPath,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const siteUrl = 'https://icra.engineer';
+const siteUrl = (Astro.site ?? new URL('https://icra.engineer/')).origin;
+const pathname = canonicalPath ?? (Astro.url.pathname === '/' ? '' : Astro.url.pathname);
+const canonicalURL = `${siteUrl}${pathname}`;
 const siteName = 'ICRA Engineer';
 const contactEmail = 'sales@desertrich.com';
 

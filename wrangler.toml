@@ -1,9 +1,12 @@
 name = "icra-engineer-v1"
+main = "src/worker.ts"
 compatibility_date = "2026-06-01"
 workers_dev = false
 
 [assets]
 directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "404-page"
 
 [vars]
 SITE_URL = "https://icra.engineer"
